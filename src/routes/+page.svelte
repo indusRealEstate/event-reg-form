@@ -15,16 +15,14 @@
 	// @ts-ignore
 	const dataSubmit = async () => {
 		formJson = {
-			name : name,
-			email : email,
-			contactNo : contactNo,
-			source : source
-		}
+			name: name,
+			email: email,
+			contactNo: contactNo,
+			source: source
+		};
 		formSubmitted = true;
 		// downloadImage();
 	};
-
-	
 </script>
 
 <svelte:head>
@@ -34,7 +32,7 @@
 
 <section>
 	{#if formSubmitted}
-		<Dialog {formJson}/>
+		<Dialog {formJson} />
 	{/if}
 	<div class="flex justify-center">
 		<form on:submit|preventDefault={dataSubmit}>
