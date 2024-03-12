@@ -14,6 +14,8 @@
 
 	let formJson: any;
 
+	let otherSource = '';
+
 	// @ts-ignore
 	const dataSubmit = async () => {
 		const uuid = uuidv4();
@@ -21,7 +23,7 @@
 			name: name,
 			email: email,
 			contactNo: contactNo,
-			source: source,
+			source: source == 'Others' ? otherSource : source,
 			uid: uuid
 		};
 
@@ -116,11 +118,27 @@
 								>
 									<option>Google</option>
 									<option>Facebook</option>
+									<option>Newspaper</option>
 									<option>Instagram</option>
 									<option>LinkedIn</option>
-									<option>Other</option>
+									<option>Others</option>
 								</select>
 							</div>
+
+							{#if source == 'Others'}
+								<label for="username" class="mt-7 block text-xl font-medium leading-6 text-gray-900"
+									>Please type the source <span class="text-red-600">*</span></label
+								>
+								<div class="mt-2">
+									<input
+										required
+										bind:value={otherSource}
+										type="text"
+										name="name"
+										id="name"
+										class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 xl:text-xl xl:leading-10"
+									/>
+								</div>{/if}
 						</div>
 					</div>
 				</div>
