@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+	import { v4 as uuidv4 } from 'uuid';
+
 	import HeaderImg from '$lib/images/bayz-header.avif';
 	import MainImg from '$lib/images/bayz-main.avif';
 	import Dialog from '$lib/components/dialog/Dialog.svelte';
@@ -10,18 +12,20 @@
 
 	let formSubmitted = false;
 
-	let formJson = {};
+	let formJson: any;
 
 	// @ts-ignore
 	const dataSubmit = async () => {
+		const uuid = uuidv4();
 		formJson = {
 			name: name,
 			email: email,
 			contactNo: contactNo,
-			source: source
+			source: source,
+			uid: uuid
 		};
+
 		formSubmitted = true;
-		// downloadImage();
 	};
 </script>
 

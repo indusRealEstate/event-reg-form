@@ -1,10 +1,31 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import axios from 'axios';
+	onMount(async () => {
+		await axios.post(
+			'https://indusre.ae/reg-form-jaipur-api/add_client.php',
+			JSON.stringify({
+				uid: formJson.uid,
+				name: formJson.name,
+				email: formJson.email,
+				contact_no: formJson.contactNo,
+				source: formJson.source
+			}),
+			{
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+		);
+	});
+
 	export let formJson: any;
 
 	let showDialog = true;
 
 	const downloadImage = async () => {
-		const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=Name: ${formJson.name}, Email: ${formJson.email}, Contact Number: ${formJson.contactNo}, Source: ${formJson.source}`;
+		const data = `BEGIN%3aVCARD%0d%0aVERSION%3a3.0%0d%0aFN%3bCHARSET%3dUTF-8%3aJaipur-${formJson.name}%0d%0aN%3bCHARSET%3dUTF-8%3aDoe%3bJohn%3b%3b%3b%0d%0aTEL%3bTYPE%3dHOME%2cVOICE%3a${formJson.contactNo}%0d%0aTEL%3bTYPE%3dWORK%2cVOICE%3a%0d%0aEMAIL%3a${formJson.email}%0d%0aORG%3bCHARSET%3dUTF-8%3a%0d%0aURL%3a${formJson.uid}%3a%2f%2f%0d%0aEND%3aVCARD`;
+		const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${data}`;
 		if (!url.trim()) {
 			alert('Please provide a valid image URL.');
 			return;
@@ -37,7 +58,8 @@
 
 	const emailQr = async () => {
 		try {
-			const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=Name: ${formJson.name}, Email: ${formJson.email}, Contact Number: ${formJson.contactNo}, Source: ${formJson.source}`;
+			const data = `BEGIN%3aVCARD%0d%0aVERSION%3a3.0%0d%0aFN%3bCHARSET%3dUTF-8%3aJaipur-${formJson.name}%0d%0aN%3bCHARSET%3dUTF-8%3aDoe%3bJohn%3b%3b%3b%0d%0aTEL%3bTYPE%3dHOME%2cVOICE%3a${formJson.contactNo}%0d%0aTEL%3bTYPE%3dWORK%2cVOICE%3a%0d%0aEMAIL%3a${formJson.email}%0d%0aORG%3bCHARSET%3dUTF-8%3a%0d%0aURL%3a${formJson.uid}%3a%2f%2f%0d%0aEND%3aVCARD`;
+			const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${data}`;
 			const qrResponse = await fetch(url);
 			const blob = await qrResponse.blob();
 
