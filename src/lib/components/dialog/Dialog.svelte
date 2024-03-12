@@ -71,7 +71,7 @@
 				const base64Data = reader.result;
 
 				// Call the API with base64 encoded image
-				const response = await fetch('https://indusre.ae/send_email.php', {
+				const response = await fetch('https://indusre.ae/reg-form-jaipur-api/send_mail.php', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
