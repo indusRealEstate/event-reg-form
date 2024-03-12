@@ -24,7 +24,7 @@
 	let showDialog = true;
 
 	const downloadImage = async () => {
-		const data = `BEGIN%3aVCARD%0d%0aVERSION%3a3.0%0d%0aFN%3bCHARSET%3dUTF-8%3aJaipur-${formJson.name}%0d%0aN%3bCHARSET%3dUTF-8%3aDoe%3bJohn%3b%3b%3b%0d%0aTEL%3bTYPE%3dHOME%2cVOICE%3a${formJson.contactNo}%0d%0aTEL%3bTYPE%3dWORK%2cVOICE%3a%0d%0aEMAIL%3a${formJson.email}%0d%0aORG%3bCHARSET%3dUTF-8%3a%0d%0aURL%3a${formJson.uid}%0d%0aEND%3aVCARD`;
+		const data = `BEGIN%3aVCARD%0d%0aVERSION%3a3.0%0d%0aFN%3bCHARSET%3dUTF-8%3aJaipur-${formJson.name}%0d%0aN%3bCHARSET%3dUTF-8%3aJaipur-${formJson.name}%3b%3b%3b%0d%0aTEL%3bTYPE%3dHOME%2cVOICE%3a${formJson.contactNo}%0d%0aTEL%3bTYPE%3dWORK%2cVOICE%3a%0d%0aEMAIL%3a${formJson.email}%0d%0aORG%3bCHARSET%3dUTF-8%3a%0d%0aURL%3a${formJson.uid}%0d%0aEND%3aVCARD`;
 		const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${data}`;
 		if (!url.trim()) {
 			alert('Please provide a valid image URL.');
@@ -58,7 +58,7 @@
 
 	const emailQr = async () => {
 		try {
-			const data = `BEGIN%3aVCARD%0d%0aVERSION%3a3.0%0d%0aFN%3bCHARSET%3dUTF-8%3aJaipur-${formJson.name}%0d%0aN%3bCHARSET%3dUTF-8%3aDoe%3bJohn%3b%3b%3b%0d%0aTEL%3bTYPE%3dHOME%2cVOICE%3a${formJson.contactNo}%0d%0aTEL%3bTYPE%3dWORK%2cVOICE%3a%0d%0aEMAIL%3a${formJson.email}%0d%0aORG%3bCHARSET%3dUTF-8%3a%0d%0aURL%3a${formJson.uid}%0d%0aEND%3aVCARD`;
+			const data = `BEGIN%3aVCARD%0d%0aVERSION%3a3.0%0d%0aFN%3bCHARSET%3dUTF-8%3aJaipur-${formJson.name}%0d%0aN%3bCHARSET%3dUTF-8%3aJaipur-${formJson.name}%3b%3b%3b%0d%0aTEL%3bTYPE%3dHOME%2cVOICE%3a${formJson.contactNo}%0d%0aTEL%3bTYPE%3dWORK%2cVOICE%3a%0d%0aEMAIL%3a${formJson.email}%0d%0aORG%3bCHARSET%3dUTF-8%3a%0d%0aURL%3a${formJson.uid}%0d%0aEND%3aVCARD`;
 			const url = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${data}`;
 			const qrResponse = await fetch(url);
 			const blob = await qrResponse.blob();
