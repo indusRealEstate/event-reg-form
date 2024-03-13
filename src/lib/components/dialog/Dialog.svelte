@@ -145,12 +145,13 @@
 						</div> -->
 							<div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
 								<h3 class="text-2xl font-semibold leading-6 text-gray-900" id="modal-title">
-									Get Qr code
+									Thank you!
 								</h3>
 								<div class="mt-2">
 									<p class="text-xl text-gray-500">
-										Don't forget to bring the qr code with you when attending the event. This will
-										help us verify your attendance. Please choose a way to collect the code.
+										You have successfully registered for the event. You can download the QR Code
+										here. This will help us to verify your registration. Looking forward to
+										seeing you soon.
 									</p>
 								</div>
 							</div>
