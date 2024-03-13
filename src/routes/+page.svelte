@@ -74,11 +74,10 @@
 
 						<div class="sm:col-span-5">
 							<label for="username" class="block text-xl font-medium leading-6 text-gray-900"
-								>Email <span class="text-red-600">*</span></label
+								>Email</label
 							>
 							<div class="mt-2">
 								<input
-									required
 									bind:value={email}
 									type="email"
 									name="email"
