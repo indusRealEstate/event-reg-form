@@ -71,11 +71,12 @@
 				const base64Data = reader.result;
 
 				// Call the API with base64 encoded image
-				const response = await fetch('https://indusre.ae/reg-form-jaipur-api/send_mail.php', {
+				const response = await fetch('https://indusspeciality.com/api/mail_api/send_mail.php', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
 					},
+					// mode: 'no-cors',
 					body: JSON.stringify({ emailTo: formJson.email, image: base64Data, name: formJson.name })
 				});
 
@@ -150,8 +151,8 @@
 								<div class="mt-2">
 									<p class="text-xl text-gray-500">
 										You have successfully registered for the event. You can download the QR Code
-										here. This will help us to verify your registration. Looking forward to
-										seeing you soon.
+										here. This will help us to verify your registration. Looking forward to seeing
+										you soon.
 									</p>
 								</div>
 							</div>
