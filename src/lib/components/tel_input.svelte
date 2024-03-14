@@ -8,7 +8,7 @@
 	export let closeOnClick = true;
 	export let disabled = false;
 	export let detailedValue: any = null;
-	export let value = '+91';
+	export let value = '';
 	export let searchPlaceholder = 'Search';
 
 	let searchText = '';

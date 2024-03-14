@@ -9,7 +9,7 @@
 
 	let name = '';
 	let email = '';
-	let contactNo = '';
+	let contactNo = '+91';
 	let source = '';
 
 	let formSubmitted = false;
@@ -94,7 +94,7 @@
 								>Contact Number <span class="text-red-600">*</span></label
 							>
 							<div class="mt-2">
-								<TelInput />
+								<TelInput bind:value={contactNo} />
 								<!-- <input
 									required
 									bind:value={contactNo}
